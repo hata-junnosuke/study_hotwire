@@ -3,7 +3,7 @@ class CreateTodos < ActiveRecord::Migration[7.0]
     create_table :todos do |t|
       t.string :title
       t.string :content
-      t.integer :complete
+      t.boolean :complete
 
       t.timestamps
     end

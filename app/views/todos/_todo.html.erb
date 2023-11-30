@@ -1,17 +1,14 @@
-<div id="<%= dom_id todo %>">
-  <p>
-    <strong>Title:</strong>
+<div class="row py-2 border-top">
+  <div class="col-4 my-auto">
     <%= todo.title %>
-  </p>
-
-  <p>
-    <strong>Content:</strong>
+  </div>
+  <div class="col-4 my-auto">
     <%= todo.content %>
-  </p>
-
-  <p>
-    <strong>Complete:</strong>
-    <%= todo.complete %>
-  </p>
-
+  </div>
+  <div class="col-4">
+    <div class="d-flex justify-content-end">
+      <%= link_to "編集", edit_todo_path(todo), class: "btn btn-sm btn-outline-primary me-2" %>
+      <%= button_to "削除", todo, method: :delete, class: "btn btn-sm btn-outline-danger" %>
+    </div>
+  </div>
 </div>
