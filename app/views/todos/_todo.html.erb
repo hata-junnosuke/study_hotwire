@@ -1,9 +1,12 @@
 <%= turbo_frame_tag todo do %>
   <div class="row py-2 border-top">
-    <div class="col-4 my-auto">
+    <div class="col-2 my-auto">
+      <%= check_box_tag "todo[complete]", 1, todo.complete?, data: { turbo: false }, class: "form-check-input", id: "todo_complete_#{todo.id}" %>
+    </div>
+    <div class="col-3 my-auto">
       <%= todo.title %>
     </div>
-    <div class="col-4 my-auto">
+    <div class="col-3 my-auto">
       <%= todo.content %>
     </div>
     <div class="col-4">
