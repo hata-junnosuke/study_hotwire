@@ -1,0 +1,15 @@
+<% if @todo.complete %>
+  <turbo-stream action="remove" target="todo_<%= @todo.id %>"></turbo-stream>
+  <turbo-stream action="append" target="complete_todos">
+    <%= turbo_frame_tag "todo_#{@todo.id}" do %>
+      <%= render @todo %>
+    <% end %>
+  </turbo-stream>
+<% else %>
+  <turbo-stream action="remove" target="todo_<%= @todo.id %>"></turbo-stream>
+  <turbo-stream action="append" target="incomplete_todos">
+    <%= turbo_frame_tag "todo_#{@todo.id}" do %>
+      <%= render @todo %>
+    <% end %>
+  </turbo-stream>
+<% end %>

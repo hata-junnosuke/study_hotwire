@@ -29,11 +29,13 @@
         </div>
       </div>
 
-      <%= render @todos %>
+      <div id="incomplete_todos">
+        <%= render @todos.reject(&:complete) %>
+      </div>
     </div>
 </div>
 
-<div class="card shadow mt-3">
+<div class="card shadow mt-3" id="complete">
   <div class="card-header">
     <%= icon_with_text("table", "完了") %>
   </div>
@@ -51,6 +53,8 @@
       </div>
     </div>
 
-    <%= render @todos %>
+    <div id="complete_todos">
+      <%= render @todos.select(&:complete) %>
+    </div>
   </div>
 </div>

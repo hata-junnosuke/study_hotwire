@@ -32,13 +32,17 @@ class TodosController < ApplicationController
 
   # PATCH/PUT /todos/1
   def update
+    @todo = Todo.find(params[:id])
     if @todo.update(todo_params)
-      redirect_to @todo, notice: "Todo was successfully updated.", status: :see_other
+      respond_to do |format|
+        format.turbo_stream
+        format.html { redirect_to todos_path }
+      end
     else
       render :edit, status: :unprocessable_entity
     end
   end
-
+  
   # DELETE /todos/1
   def destroy
     @todo.destroy
